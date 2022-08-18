@@ -1,0 +1,568 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply text-[62.5%] max-w-[100vw];
+  }
+  :root {
+    --floral-white: 254 249 238;
+    --primary-tomato: 255 69 69;
+    --light-pink: 245 184 209;
+    --tyrian-Purple: 117 8 58;
+    --dark-tyrian-Purple: 63 16 38;
+    --primary-green: 68 175 105;
+    --light-green: 186 227 200;
+    --primary-orange: 255 127 17;
+    --light-orange: 253 201 156;
+    --primary-yellow: 254 210 67;
+    --light-yellow: 255 237 180;
+    --dark-yellow: 80 74 36;
+    --dark-gray: 31 29 26;
+  }
+  body {
+    @apply font-['Lexend',sans-serif];
+  }
+}
+
+@layer components {
+  /***********  general  ***********/
+  .main-logo {
+   @apply w-[calc(6rem+6.5vw)] block
+  }
+
+  .general-x-padding {
+    @apply px-6 sm:px-16 lg:px-44 2xl:px-60
+  }
+  
+  .general-y-padding {
+    @apply py-[calc(3rem+5vw)]
+  }
+  
+  .button {
+    @apply text-[calc(.8rem+.8vw)] px-[calc(.6rem+1.2vw)] py-3 sm:py-4 rounded-full capitalize cursor-pointer hover:underline underline-offset-4;
+  }
+  
+  .download {
+    @apply flex mx-auto gap-6 w-fit px-6
+  }
+
+  /***********  navigation  ***********/
+  .navigation {
+    @apply z-50 py-6 sm:py-10 px-[calc(1rem+2vw)] whitespace-nowrap fixed top-0 left-0 right-0;
+  }
+  
+  .navigation__Items {
+    @apply flex gap-[calc(.5rem+1vw)] items-center ;
+  }
+  
+  .navigation__logo {
+    @apply mr-auto  cursor-pointer 
+  }
+  
+  .navigation__Item {
+    @apply hidden md:block text-[calc(1rem+.8vw)] text-white font-medium capitalize p-3 cursor-pointer  hover:underline underline-offset-2;
+  }
+  
+  .navigation__button {
+    @apply hidden xs:block ml-auto lg:ml-[6%] [&_button]:bg-tyrianPurple text-white;
+  }
+  
+  .navigation__icon {
+    @apply block md:hidden [&_svg]:w-10 [&_svg]:aspect-square rounded-full bg-floralWhite p-3 text-tyrianPurple;
+  }
+  
+  /***********  header  ***********/
+
+  /* .header {
+    @apply 
+  } */
+  
+  .header__title {
+    @apply flex items-center justify-center bg-cover min-h-[72vh] bg-[url(../../public/images/kitchen.webp)] bg-center general-x-padding text-floralWhite font-medium tracking-tighter text-[clamp(6rem,5rem+8vw,12rem)] leading-tight m-auto isolate relative before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-gradient-to-b before:from-black/60 before:to-black/20 before:-z-10 text-center;
+  }
+  .header__title::after {
+    @apply content-["."] text-lightPink
+  }
+  .header .box {
+    @apply general-x-padding py-[calc(2.5rem+6vw)] bg-floralWhite 
+  }
+  .header__description {
+    @apply font-['Quicksand',sans-serif] font-semibold text-[max(1.5rem,1.1rem+1.2vw)] xs:max-w-[90%] sm:max-w-[80%] text-center mx-auto text-darkGray leading-relaxed mb-8 lg:mb-12
+  }
+  .header__description svg {
+    @apply cursor-pointer
+  }
+
+  /***********  presentation section  ***********/
+  
+  /*** start cooking ***/
+  
+  .presentation > section > div {
+    @apply flex-1
+  }
+  .presentation > section{
+    @apply general-x-padding py-[calc(4rem+10vw)] flex gap-[calc(10vw)] flex-col md:flex-row md:justify-center items-center relative overflow-hidden z-10 before:absolute before:w-[160%] before:xs:w-[120%] sm:before:w-full before:aspect-square before:rounded-full  before:-z-10 after:absolute after:w-[160%] after:xs:w-[120%] sm:after:w-full after:aspect-square after:rounded-full  after:-z-10
+  }
+  .presentation__start-cooking {
+    @apply bg-lightGreen text-teal-900 before:bottom-0 before:right-0 before:translate-x-1/2 before:translate-y-1/2 before:bg-primaryGreen 
+  }
+  .cnt-1,.cnt-2,.cnt-3 {
+    @apply lg:w-1/2
+  }
+  .presentation__title {
+    @apply text-[calc(2.5rem+2.2vw)] font-medium leading-tight mb-6 md:mb-8 lg:mb-10 after:content-["."] after:text-floralWhite
+  }
+  .presentation__description {
+    @apply text-[calc(1rem+.5vw)] font-['Quicksand'] font-semibold leading-loose mb-4 sm:mb-6
+  }
+  .presentation__start-cooking .button {
+    @apply bg-white text-primaryGreen 
+  }
+  
+  /*** start-cooking-animation ***/
+  
+  .start-cooking__animation, .smart-recipes__animation, .favorite-cookbook__animation {
+    @apply relative w-[90vw] xs:w-[75vw] sm:w-[60vw] md:max-w-[30vw]  flex-1  aspect-square
+  }
+  .start-cooking__animation div {
+    @apply aspect-square rounded-full absolute bg-cover 
+  }
+  .start-cooking__img1 {
+    @apply bg-[url(../../public/images/vegetable-1.jpg)] w-[30%] top-0 left-[5%] start-cooking__img1-animation
+  }
+  .start-cooking__img2 {
+    @apply bg-[url(../../public/images/vegetable-2.jpg)] w-[13%] top-[29.5%] left-[9%] start-cooking__img2-animation
+  }
+  .start-cooking__img3 {
+    @apply bg-[url(../../public/images/vegetable-3.jpg)] w-[75%] top-[16%] left-[18%] start-cooking__img3-animation
+  }
+  .start-cooking__img4 {
+    @apply bg-[url(../../public/images/vegetable-4.jpg)] w-[22%] bottom-0 right-0 start-cooking__img4-animation
+  }
+  .start-cooking__light {
+    @apply w-[9%] bg-floralWhite top-[25%] left-[2%] start-cooking__light-animation
+  }
+  .start-cooking__lighter {
+    @apply w-[8%] bg-white bottom-[22%] right-[4%] start-cooking__lighter-animation
+  }
+  .start-cooking__dark {
+    @apply w-[16%] bg-stone-700 top-[2%] left-[34.5%] start-cooking__dark-animation
+  }
+  .start-cooking__darker {
+    @apply bg-darkGray w-[9%] bottom-[4%] right-[22%] start-cooking__darker-animation
+  }
+
+  .smart-recipes__animation {
+    @apply grid grid-cols-2 grid-rows-2
+  }
+  
+  .presentation__smart-recipes {
+    @apply bg-lightOrange text-orange-900 before:top-0 before:right-0 before:translate-x-1/2 before:-translate-y-1/2 before:bg-primaryOrange after:bottom-0 after:left-0 after:-translate-x-1/2 after:translate-y-1/2 after:bg-primaryOrange 
+  }
+  .presentation__smart-recipes .button {
+  @apply bg-white text-primaryOrange
+}
+/*** favorite cookbook ***/
+
+.presentation__favorite-cookbook {
+  @apply bg-lightYellow text-yellow-800 after:top-0 after:left-0 after:-translate-x-1/2 after:-translate-y-1/2 after:bg-primaryYellow 
+}
+.presentation__favorite-cookbook .button {
+  @apply bg-white text-yellow-600
+}
+.favorite-cookbook__animation {
+  @apply grid grid-cols-3 grid-rows-3 [&>*]:overflow-hidden [&>*]:aspect-square [&>*]:rounded-full
+}
+.favorite-cookbook__img1 {
+  
+}
+.favorite-cookbook__img2 {
+  
+}
+.favorite-cookbook__img3 {
+  
+}
+.favorite-cookbook__img4 {
+  
+}
+.favorite-cookbook__img5 {
+  
+}
+.favorite-cookbook__img6 {
+  
+}
+.favorite-cookbook__img7 {
+}
+.favorite-cookbook__logo {
+  @apply p-[calc(2rem+1.5vw)] bg-primaryYellow
+}
+.favorite-cookbook__logo img {
+  @apply aspect-square
+  
+}
+
+/***********  how it works  ***********/
+
+.how-it-works {
+  @apply general-x-padding bg-white general-y-padding relative before:absolute before:-bottom-[8rem] before:left-0 before:w-full before:aspect-square before:bg-floralWhite z-0 before:-z-10 before:rounded-full overflow-hidden
+}
+.how-it-works__title {
+  @apply text-[calc(2rem+3vw)] font-medium text-tyrianPurple text-center mb-6
+}
+.how-it-works__description {
+  @apply text-[calc(1.5rem+1vw)] text-center font-["Quicksand",sans-serif] font-medium px-8 mb-12 overflow-hidden
+}
+
+.how-it-works__app {
+  @apply md:flex gap-[calc(2rem+5vw)] mb-[calc(5rem+12vw)] [&>*]:flex-1
+}
+.how-it-works__app img {
+  @apply w-3/5 xs:w-1/2 md:w-auto block mx-auto
+}
+/* .app__box {
+  @apply
+} */
+.app__title {
+  @apply justify-center md:justify-start text-[calc(1.5rem+1vw)] text-tyrianPurple mb-4 flex items-center gap-2 before:bg-tyrianPurple before:text-white before:text-[calc(1rem+.3vw)] before:font-medium before:w-[calc(2rem+1vw)] before:align-text-bottom before:flex before:justify-center before:items-center before:aspect-square before:rounded-full  
+}
+.app__description {
+  @apply text-center md:text-left text-[1.8rem] font-["Quicksand",sans-serif] font-medium text-darkGray
+}
+
+/* .how-it-works__brands {
+  @apply 
+} */
+.brands__title {
+  @apply text-[calc(1.5rem+1.8vw)] text-tyrianPurple text-center font-medium mb-[calc(2rem+2vw)] 
+}
+.brands__wrapper {
+  @apply flex flex-wrap [&_img]:w-1/2 md:[&_img]:w-1/4 lg:[&_img]:w-1/6 justify-center mb-[calc(2rem+2vw)]
+}
+
+/***********  how it works  ***********/
+.articles {
+  @apply general-x-padding general-y-padding bg-darkGray
+}
+.articles__title {
+  @apply text-[calc(2.2rem+3vw)] font-medium text-lightPink text-center mb-6 after:content-["."] after:text-white
+}
+.articles__description {
+  @apply text-[calc(1.2rem+1.2vw)] tracking-tighter mx-auto text-center  font-["Quicksand",sans-serif] lg:w-4/5 font-medium mb-16 text-floralWhite
+}
+.articles__wrapper {
+  @apply grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 px-[calc(14vw)] xs:p-0 
+}
+
+.articles__figure {
+  @apply  relative rounded-2xl overflow-hidden [&:hover_.figure\_\_title]:underline [&:hover_img]:scale-110 [&_img]:transition-transform [&_img]:duration-500 before:absolute before:bottom-0 before:left-0 before:w-full before:h-2/3 before:bg-gradient-to-t before:from-black/95 before:to-transparent before:z-10
+}
+.figure__image {
+  @apply block [&>img]:object-cover [&>img]:aspect-square rounded-tr-[32%] overflow-hidden z-0
+}
+.figure-data {
+  @apply absolute bottom-0 left-0 px-4 pb-6 text-floralWhite  z-10
+}
+.figure__title {
+  @apply text-[calc(.8rem+1vw)] mb-2 font-medium
+}
+.figure__description {
+  @apply text-[calc(.6rem+.8vw)] 
+}
+
+/*********** reviews ***********/
+
+.reviews {
+  @apply general-x-padding general-y-padding
+}
+.reviews__title {
+  @apply text-[calc(2.2rem+3vw)] tracking-tighter font-medium text-tyrianPurple text-center mb-6 after:content-["."] after:text-lightPink
+}
+.reviews__description {
+  @apply text-[calc(1.2rem+1.2vw)] tracking-tighter mx-auto text-center  font-["Quicksand",sans-serif] lg:w-4/5 font-semibold mb-16 text-darkGray
+}
+.reviews__wrapper {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-[5vw] xs:px-[calc(10vw)] md:px-[5vw] lg:px-0
+}
+.reviews__review {
+  @apply p-[calc(1rem+2.2vw)]  pb-[calc(2rem+3vw)] rounded-2xl
+}
+.review__stars {
+  @apply flex mb-4 sm:mb-8 
+}
+.review__title {
+  @apply text-[calc(1.5rem+.4vw)] mb-2 font-medium text-yellow-100
+}
+.review__content {
+  @apply text-[calc(.8rem+.5vw)] font-["Quicksand",sans-serif] font-semibold text-floralWhite xs:leading-loose sm:leading-relaxed mb-2 sm:mb-4
+}
+.review__user {
+  @apply text-[calc(.8rem+.5vw)] font-["Quicksand",sans-serif] font-bold text-floralWhite 
+}
+
+/*********** QR-code section ***********/
+
+.qr-code {
+  @apply general-x-padding general-y-padding bg-darkTyrianPurple
+}
+.qr-code__wrapper {
+  @apply   px-[5vw] flex items-center justify-center gap-[calc(3rem+5vw)]
+}
+.qr-code__QR {
+  @apply hidden lg:block max-w-[22rem] grow 
+}
+.qr-code__content {
+  @apply block
+}
+.qr-code__header {
+  @apply flex flex-col lg:flex-row items-center justify-center gap-12 mb-10
+} 
+.qr-code__logo {
+  @apply [&_img]:w-24 [&_img]:min-w-[5rem] [&_img]:aspect-square [&_img]:object-contain p-5  rounded-2xl bg-tyrianPurple
+}
+.qr-code__title {
+  @apply text-[calc(2rem+1.6vw)] font-medium text-lightPink leading-none text-center mb-4 lg:mb-0 flex-nowrap
+}
+.qr-code__subtitle {
+  @apply text-[calc(1.4rem+.5vw)] font-["Quicksand",sans-serif] font-medium text-floralWhite text-center
+}
+.qr-code__description {
+  @apply text-[calc(1.2rem+1vw)] text-floralWhite font-["Quicksand",sans-serif] font-medium text-center
+}
+
+/*********** footer ***********/
+
+.footer {
+  @apply bg-darkGray general-x-padding py-[calc(2rem+3vw)] text-floralWhite
+}
+.footer__wrapper {
+  @apply flex flex-wrap gap-[calc(1rem+2vw)] justify-center items-start mb-6 sm:mb-12 lg:mb-36
+}
+ .main-logo {
+  @apply block
+}
+.footer__links {
+  @apply space-y-6 mx-auto
+}
+.footer__link {
+  @apply text-[calc(.8rem+.5vw)]  hover:underline
+}
+.footer__micro-title {
+  @apply text-[calc(.8rem+.5vw)] text-gray-400 font-medium
+}
+.footer__box {
+  @apply [&_img]:w-[calc(2rem+.8vw)] mx-auto 
+}
+.social-media-links {
+  @apply flex justify-end gap-6 [&>*]:cursor-pointer mb-[calc(1rem+2vw)]
+}
+
+.footer .form__box {
+  @apply flex bg-white overflow-hidden rounded-full pl-6 sm:pl-8 mb-6
+}
+.form__label {
+  @apply block text-[calc(.8rem+.5vw)] text-floralWhite mb-2 text-right
+}
+.footer input {
+  @apply outline-none text-darkGray text-[calc(.8rem+.5vw)] font-['Quicksand',sans-serif] font-semibold tracking-wide placeholder:font-medium placeholder:text-gray-600
+}
+.footer .form__button {
+  @apply bg-black text-white text-[calc(.8rem+.5vw)] px-[calc(.6rem+1vw)] py-2 m-[1.4px] rounded-full capitalize cursor-pointer hover:underline underline-offset-4;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*********   animation   *********/
+
+/*** start cooking ***/
+
+.start-cooking__img1-animation {
+  animation: animate-1 6s ease .6s forwards;
+}
+.start-cooking__img2-animation {
+  animation: animate-2 6s ease .6s forwards;
+}
+.start-cooking__img3-animation {
+  animation: animate-3 6s ease .6s forwards;
+}
+.start-cooking__img4-animation {
+  animation: animate-4 6s ease .6s forwards;
+}
+.start-cooking__light-animation {
+  animation: animate-5 6s ease .6s forwards;
+}
+.start-cooking__lighter-animation {
+  animation: animate-6 6s ease .6s forwards;
+}
+.start-cooking__dark-animation {
+  animation: animate-7 6s ease .6s forwards;
+}
+.start-cooking__darker-animation {
+  animation: animate-8 6s ease .6s forwards;
+}
+/*** smart recipes ***/
+
+.smart-recipes__img1 {
+  animation: rotate 3s forwards;
+  border-radius: 100% 0% 0% 100% / 100% 100% 0% 0% ; 
+  overflow: hidden;
+}
+
+.smart-recipes__img2 {
+  animation: rotate 3s forwards; 
+  border-radius: 0% 100% 0% 100% / 100% 100% 0% 0%; 
+  overflow: hidden;
+}
+
+.smart-recipes__img3 {
+  animation: rotate 3s forwards; 
+  border-radius: 100% 0% 0% 100% / 0% 100% 0% 100%  ; 
+  overflow: hidden;
+}
+
+.smart-recipes__img4 {
+  animation: rotate 3s forwards; 
+  border-radius: 0% 100% 100% 0% / 100% 0% 100% 0% ; 
+  overflow: hidden;
+}
+
+
+
+@keyframes animate-1 {
+ 10%, 25%, 85%,100% {
+    width: 70%;
+  }
+  35% ,75% {
+    width: 30%;
+  }
+}
+@keyframes animate-2 {
+ 10%, 25%, 85%, 100% {
+    width: 13%;
+    top: 68%;
+    left: 46%;
+  }
+  35%, 50% {
+    width: 75%;
+    top: 17%;
+    left: 17.5%;
+  }
+  60%, 75% {
+    width: 20%;
+    top: 30%;
+    left: 11%;
+  }
+}
+@keyframes animate-3 {
+ 10%, 25%, 85%, 100% {
+    width: 27%;
+    top: 58%;
+    left: 58.5%;
+  }
+  35%, 50% {
+    width: 18%;
+    top: 62%;
+    left: 89%;
+  }
+  60%, 75% {
+    width: 13.5%;
+    top: 17.5%;
+    left: 33%;
+  }
+  
+}
+
+@keyframes animate-4 {
+ 10%, 50%, 85%, 100% {
+    width: 22% ;
+  }
+  60%, 75% {
+    width: 75%;
+  }
+}
+@keyframes animate-5 {
+ 10%, 25%, 85%, 100% {
+    top: 70%;
+    left: 37%;
+  }
+  35%, 50% {
+    top: 30%;
+    left: 13.5%;
+  }
+  60%, 75% {
+    top: 27%;
+    left: 5%;
+  }
+}
+@keyframes animate-6 {
+ 10%, 25%, 85%, 100% {
+   bottom: 22%;
+    right: 7%;
+  }
+  35%, 50% {
+    bottom: 13%;
+    right: -7%;
+  }
+  60%, 75% {
+    bottom: 59%;
+    right: 1%;
+}
+}
+  @keyframes animate-7 {
+   10%, 25%, 85%, 100% {
+      top: 43.5%;
+      left: 71.5%;
+    }
+   35%,50% {
+      top: 3%;
+      left: 34.5%;
+    }
+    60%, 75% {
+      top: 2%;
+      left: 34.5%;
+    }
+  }
+  @keyframes animate-8 {
+   10%, 25%, 85%, 100% {
+      bottom: 6%;
+      right: 22%;
+    }
+    35%,50%  {
+      bottom: 3.5%;
+      right: 21.5%;
+    }
+    60%, 75% {
+      bottom: 11%;
+      right: 68.5%;
+  }
+  }
+  @keyframes rotate {
+    33% {
+      transform: rotate(90deg);
+    }
+    66% {
+      transform: rotate(180deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
